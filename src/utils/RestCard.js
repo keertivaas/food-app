@@ -24,7 +24,7 @@ const RestCard = function(props){
               {props.desc}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {props.price}
+              {"Rs " + props.price}
               </Typography>
             </CardContent>
           </CardActionArea>

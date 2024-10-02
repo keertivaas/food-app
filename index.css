@@ -29,6 +29,25 @@
     flex-wrap: wrap;
 }
 
+.res-container-shimmer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .cardContainer{
     padding: 10px;
+}
+
+.loginButton{
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.search-filter-container{
+    display: flex;
+    padding: 10px;
+}
+
+.search{
+    padding-right: 15px;
 }
