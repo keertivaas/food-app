@@ -51,3 +51,20 @@
 .search{
     padding-right: 15px;
 }
+
+.noUnderLine{
+    text-decoration: none;
+    color: black;
+}
+
+.noUnderLine:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 1vh;
+    width: 100%;
+    text-align: center;
+ }

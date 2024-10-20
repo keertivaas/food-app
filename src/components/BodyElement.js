@@ -1,19 +1,14 @@
 import React, { useState, useMemo, useEffect } from "react";
 import RestCard from "../utils/RestCard";
 import SearchBar from "./SearchBar";
+import Shimmer from "./Shimmer.js";
 import { StyleCard, IMG_URL_PREFIX } from "../utils/constants.js";
+import { Link } from "react-router-dom";
 
 export const BodyElement = function () {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
-
-  // function handleFoodLessthan100(){
-  //   const filteredRestaurantList = useMemo(() => {
-  //     return restaurantList.filter(r => r.price < 100);
-  //   }, [restaurantList]);
-  //   setRestaurantList(filteredRestaurantList);
-  // }
 
   useEffect(() => {
     fetchData();
@@ -71,110 +66,26 @@ export const BodyElement = function () {
       </div>
       {filteredRestaurantList.length === 0 && restaurantList.length === 0 && (
         <div className="res-container-shimmer">
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
-          <RestCard
-            key={"Loading"}
-            name={"Loading"}
-            imgSrc={"default-image.jpg"}
-            desc={"Loading"}
-            price={"Loading"}
-            styles={StyleCard}
-          />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
+          <Shimmer StyleCard={StyleCard} />
         </div>
       )}
       {filteredRestaurantList.length != 0 && restaurantList.length != 0 && (
         <div className="res-container">
           {filteredRestaurantList.map((food, index) => {
             return (
+              <Link className="noUnderLine" key={food?.info?.id || index} to={`/restaurant/${food?.info?.id || index}`}>
               <RestCard
-                key={food?.info?.id || index}
                 name={food?.info?.name || "Unknown"}
                 imgSrc={
                   IMG_URL_PREFIX + food?.info?.cloudinaryImageId ||
@@ -187,6 +98,7 @@ export const BodyElement = function () {
                 }
                 styles={StyleCard}
               />
+              </Link>
             );
           })}
         </div>
